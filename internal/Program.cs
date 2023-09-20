@@ -570,6 +570,54 @@ C:\Users\sunny\source\repos\internal\internal>moo.txt
 
 --------------------------------------------------------------------------------
 
+C:\Users\sunny\source\repos\internal\internal>dir
+ Volume in drive C has no label.
+ Volume Serial Number is DAE4-938D
+
+ Directory of C:\Users\sunny\source\repos\internal\internal
+
+21/09/2023  04:59 am    <DIR>          .
+21/09/2023  04:59 am    <DIR>          ..
+21/09/2023  04:28 am    <DIR>          bin
+21/09/2023  04:56 am             3,072 MeDll.dll
+21/09/2023  04:41 am             3,072 MeFirstModule.netmodule
+21/09/2023  04:44 am             3,072 MeSecondModule.netmodule
+21/09/2023  04:57 am               636 moo.res
+21/09/2023  04:57 am             1,900 moo.txt
+21/09/2023  04:28 am    <DIR>          obj
+21/09/2023  04:59 am            24,323 Program.cs
+21/09/2023  04:28 am    <DIR>          Properties
+               6 File(s)         36,075 bytes
+               5 Dir(s)  490,463,272,960 bytes free
+
+C:\Users\sunny\source\repos\internal\internal>erase moo.*
+
+C:\Users\sunny\source\repos\internal\internal>dir
+ Volume in drive C has no label.
+ Volume Serial Number is DAE4-938D
+
+ Directory of C:\Users\sunny\source\repos\internal\internal
+
+21/09/2023  05:00 am    <DIR>          .
+21/09/2023  05:00 am    <DIR>          ..
+21/09/2023  04:28 am    <DIR>          bin
+21/09/2023  04:56 am             3,072 MeDll.dll
+21/09/2023  04:41 am             3,072 MeFirstModule.netmodule
+21/09/2023  04:44 am             3,072 MeSecondModule.netmodule
+21/09/2023  04:28 am    <DIR>          obj
+21/09/2023  04:59 am            24,323 Program.cs
+21/09/2023  04:28 am    <DIR>          Properties
+               4 File(s)         33,539 bytes
+               5 Dir(s)  490,462,138,368 bytes free
+
+-----------------PROTECTED LEVEL INTERNAL ASSEMBLY---------------------------------
+-----------------cant reference to main CS-----------
+C:\Users\sunny\source\repos\internal\internal>csc /r:MeDll.dll Program.cs
+Microsoft (R) Visual C# Compiler version 4.7.0-3.23416.8 (43b0b05c)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Program.cs(648,9): error CS0122: 'MeFirstModule' is inaccessible due to its protection level
+Program.cs(649,9): error CS0122: 'MeSecondModule' is inaccessible due to its protection level
 
  * 
  */
