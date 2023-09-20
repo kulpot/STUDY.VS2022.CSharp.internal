@@ -488,6 +488,89 @@ C:\Users\sunny\source\repos\Modules\Modules>moo.txt
 ----------------------------------------------------------------------
 
 
+
+C:\Users\sunny\source\repos\internal\internal>Program.exe
+Helllo from module 1
+Helllo from module 2
+
+C:\Users\sunny\source\repos\internal\internal>erase Program.exe
+
+C:\Users\sunny\source\repos\internal\internal>dir
+ Volume in drive C has no label.
+ Volume Serial Number is DAE4-938D
+
+ Directory of C:\Users\sunny\source\repos\internal\internal
+
+21/09/2023  04:53 am    <DIR>          .
+21/09/2023  04:53 am    <DIR>          ..
+21/09/2023  04:28 am    <DIR>          bin
+21/09/2023  04:41 am             3,072 MeFirstModule.netmodule
+21/09/2023  04:44 am             3,072 MeSecondModule.netmodule
+21/09/2023  04:46 am             1,128 moo.res
+21/09/2023  04:46 am             5,439 moo.txt
+21/09/2023  04:28 am    <DIR>          obj
+21/09/2023  04:53 am            21,052 Program.cs
+21/09/2023  04:28 am    <DIR>          Properties
+               5 File(s)         33,763 bytes
+               5 Dir(s)  490,466,684,928 bytes free
+
+C:\Users\sunny\source\repos\internal\internal>csc /addmodule:MeFirstModule.netmodule,MeSecondModule.netmodule /t:library /out:MeDll.dll
+Microsoft (R) Visual C# Compiler version 4.7.0-3.23416.8 (43b0b05c)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+C:\Users\sunny\source\repos\internal\internal>ildasm /out:moo.txt medll.dll
+
+C:\Users\sunny\source\repos\internal\internal>moo.txt
+
+
+--------------------------NOTEPAD: moo.txt----------------------------------------
+
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 4.8.3928.0
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+
+// Metadata version: v4.0.30319
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly MeDll
+{
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                             63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+
+  // --- The following custom attribute is added automatically, do not uncomment -------
+  //  .custom instance void [mscorlib]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 07 01 00 00 00 00 ) 
+
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.file MeFirstModule.netmodule
+    .hash = (A3 D8 67 54 7E 6D F5 C3 23 B2 D9 FE DD 81 9D 27   // ..gT~m..#......'
+             5D 15 B6 B3 )                                     // ]...
+.file MeSecondModule.netmodule
+    .hash = (A9 1B 33 DA 53 AF 70 4E 5D 73 9D B0 FC F1 37 CC   // ..3.S.pN]s....7.
+             1C 5B 3F 8B )                                     // .[?.
+.module MeDll.dll
+// MVID: {E9F3501D-B768-4A6B-9B6E-1F5B93B06AD0}
+.imagebase 0x10000000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x07350000
+
+// *********** DISASSEMBLY COMPLETE ***********************
+// WARNING: Created Win32 resource file moo.res
+
+
+--------------------------------------------------------------------------------
+
+
  * 
  */
 
@@ -515,6 +598,8 @@ C:\Users\sunny\source\repos\Modules\Modules>moo.txt
 //    }
 //}
 
+
+//internal MainClass    //the default,and not visible for assembly or private only for assembly
 class MainClass
 {
     static void Main()
